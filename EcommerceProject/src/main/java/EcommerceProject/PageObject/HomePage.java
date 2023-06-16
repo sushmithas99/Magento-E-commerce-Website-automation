@@ -11,7 +11,7 @@ import EcommerceProject.AbstractComponents.AbstractComponent;
 
 public class HomePage extends AbstractComponent {
 	WebDriver driver;
-
+public String homePageText;
 	public HomePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
@@ -21,8 +21,9 @@ public class HomePage extends AbstractComponent {
 	@FindBy(xpath = "//div[@class='page-title']/h2")
 	private WebElement homePageTitle;
 	
-	public String getHomePageTitle() {
-		String homePageText = homePageTitle.getText();
-		return homePageText;
+	public MobilesPage getHomePageTitle() {
+		 homePageText = homePageTitle.getText();
+		MobilesPage mobilePage = new MobilesPage(driver);
+		return mobilePage ;
 	}
 }

@@ -14,6 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	public WebDriver driver;
+	public HomePage homePage;
 	public String URL = "http://live.techpanda.org/";
 
 	public WebDriver initializeDriver() throws IOException {
@@ -35,14 +36,13 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		return driver;
 	}
-	@BeforeTest(alwaysRun = true)
+
+	@BeforeTest
 	public HomePage landingPage() throws IOException, InterruptedException {
-		 driver = initializeDriver();
-		 
-		 HomePage homePage = new HomePage(driver);
-		 driver.get(URL);
-		 Thread.sleep(5000);
-		 return homePage;
+		driver = initializeDriver();
+		homePage = new HomePage(driver);
+		driver.get(URL);
+		return homePage;
 	}
 
 }

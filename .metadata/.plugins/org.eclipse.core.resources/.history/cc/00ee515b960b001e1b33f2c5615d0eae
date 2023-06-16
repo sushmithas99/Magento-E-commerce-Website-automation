@@ -1,0 +1,23 @@
+package EcommerceProject.Tests;
+
+import static org.testng.Assert.assertEquals;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import EcommerceProject.PageObject.HomePage;
+import EcommerceProject.PageObject.MobilesPage;
+import EcommerceProject.TestComponents.BaseTest;
+
+public class LiveTechPanda extends BaseTest {
+@Test
+public void verifyItemsInMobileListPageIsSortedByName() throws Exception{
+	String pageTitle = homePage.getHomePageTitle();
+	Assert.assertEquals("THIS IS DEMO SITE FOR   ",pageTitle);
+	MobilesPage mobilePage = new MobilesPage(driver);
+	mobilePage.goToMobilesTab();
+	String mobilePageTitle = mobilePage.getMobilePageTitle();
+	assertEquals("MOBILE", mobilePageTitle);
+	
+}
+}

@@ -1,16 +1,38 @@
 package EcommerceProject.Tests;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import EcommerceProject.PageObject.HomePage;
+import EcommerceProject.PageObject.MobilesPage;
 import EcommerceProject.TestComponents.BaseTest;
 
 public class LiveTechPanda extends BaseTest {
-@Test
-public void verifyItemsInMobileListPageIsSortedByName() throws Exception{
-	HomePage homePage = landingPage();
-	String pageTitle = homePage.getHomePageTitle();
-	Assert.assertEquals("THIS IS DEMO SITE FOR   ",pageTitle);
-}
+	@Test
+	public void verifyItemsInMobileListPageIsSortedByName() throws Exception {
+		MobilesPage mobilePage = homePage.getHomePageTitle();
+		Assert.assertEquals("THIS IS DEMO SITE FOR   ", homePage.homePageText);
+		mobilePage.goToMobilesTab();
+		String mobilePageTitle = mobilePage.getMobilePageTitle();
+		assertEquals("MOBILE", mobilePageTitle);
+		List<String> productNames = mobilePage.getProductsNames();
+		Collections.sort(productNames);
+		Select select = mobilePage.getDropdownSelector();
+		select.selectByIndex(1);
+		List<String> sortedProductsNames = mobilePage.getProductsNames();
+		assertTrue(productNames.equals(sortedProductsNames));
+		Thread.sleep(1000);
+	}
+	@Test
+	public void verifyCostOfTheProductIsSameInListAndDetailsPage() {
+		
+	}
 }

@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-13T22:53:55 IST" name="Default suite" finished-at="2023-06-13T22:54:14 IST" duration-ms="19574">
+  <suite started-at="2023-06-16T14:46:31 IST" name="Default suite" finished-at="2023-06-16T14:46:47 IST" duration-ms="16905">
     <groups>
     </groups>
-    <test started-at="2023-06-13T22:53:55 IST" name="Default test" finished-at="2023-06-13T22:54:14 IST" duration-ms="19574">
+    <test started-at="2023-06-16T14:46:31 IST" name="Default test" finished-at="2023-06-16T14:46:47 IST" duration-ms="16905">
       <class name="EcommerceProject.Tests.LiveTechPanda">
-        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@661972b0]" started-at="2023-06-13T22:53:55 IST" name="landingPage" finished-at="2023-06-13T22:54:04 IST" duration-ms="9566" status="PASS">
+        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@4803b726]" started-at="2023-06-16T14:46:31 IST" name="landingPage" finished-at="2023-06-16T14:46:42 IST" duration-ms="11077" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- landingPage -->
-        <test-method signature="verifyItemsInMobileListPageIsSortedByName()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@661972b0]" started-at="2023-06-13T22:54:04 IST" name="verifyItemsInMobileListPageIsSortedByName" finished-at="2023-06-13T22:54:14 IST" duration-ms="10003" status="PASS">
+        <test-method signature="verifyItemsInMobileListPageIsSortedByName()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@4803b726]" started-at="2023-06-16T14:46:42 IST" name="verifyItemsInMobileListPageIsSortedByName" finished-at="2023-06-16T14:46:47 IST" duration-ms="5774" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyItemsInMobileListPageIsSortedByName -->

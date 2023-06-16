@@ -1,0 +1,35 @@
+package EcommerceProject.PageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import EcommerceProject.AbstractComponents.AbstractComponent;
+
+public class MobilesPage extends AbstractComponent {
+	public Select select;
+	WebDriver driver;
+
+	public MobilesPage(WebDriver driver) {
+		super(driver);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(css = ".page-title")
+	private WebElement mobilePageTitle;
+	
+	@FindBy(xpath = "//div[@class='category-products']/div[@class='toolbar']//select[@title='Sort By']")
+	WebElement sortByDropdown;
+
+	public String getMobilePageTitle() {
+		String mobileMenuPageTitle = mobilePageTitle.getText();
+		return mobileMenuPageTitle;
+	}
+	
+	public void getDropdownSelector() {
+		 select = new Select(sortByDropdown);
+	}
+}

@@ -1,0 +1,24 @@
+package EcommerceProject.PageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import EcommerceProject.AbstractComponents.AbstractComponent;
+
+public class MobilesPage extends AbstractComponent{
+	WebDriver driver;
+	public MobilesPage(WebDriver driver) {
+		super(driver);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(className = ".page-title")
+	private WebElement mobileTabPageTitle;
+	public void getMobileTabPageTitle() {
+		String mobilePageTitle = mobileTabPageTitle.getText();
+		return mobilePageTitle;
+	}
+}

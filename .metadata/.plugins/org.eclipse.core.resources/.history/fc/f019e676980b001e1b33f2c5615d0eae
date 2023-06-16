@@ -1,0 +1,27 @@
+package EcommerceProject.Tests;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import EcommerceProject.PageObject.HomePage;
+import EcommerceProject.PageObject.MobilesPage;
+import EcommerceProject.TestComponents.BaseTest;
+
+public class LiveTechPanda extends BaseTest {
+@Test
+public void verifyItemsInMobileListPageIsSortedByName() throws Exception{
+	MobilesPage mobilePage = homePage.getHomePageTitle();
+	Assert.assertEquals("THIS IS DEMO SITE FOR   ",homePage.homePageText);
+	mobilePage.goToMobilesTab();
+	String mobilePageTitle = mobilePage.getMobilePageTitle();
+	assertEquals("MOBILE", mobilePageTitle);
+	Select select = mobilePage.select;
+	select.selectByIndex(1);
+	threa
+	
+	
+}
+}
