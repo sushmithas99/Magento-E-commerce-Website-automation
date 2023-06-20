@@ -10,12 +10,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 
 import EcommerceProject.PageObject.HomePage;
+import EcommerceProject.PageObject.MobilesPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	public WebDriver driver;
-	public HomePage homePage;
 	public String URL = "http://live.techpanda.org/";
+//	HomePage homePage = new HomePage(driver);
+//	ThreadLocal<HomePage> threadLocalHomePage = new ThreadLocal<HomePage>();
 
 	public WebDriver initializeDriver() throws IOException {
 		FileInputStream fis = new FileInputStream(
@@ -37,12 +39,16 @@ public class BaseTest {
 		return driver;
 	}
 
+//	public HomePage getHomePage() {
+//		return threadLocalHomePage.get();
+//	}
+
 	@BeforeTest
-	public HomePage landingPage() throws IOException, InterruptedException {
+	public void landingPage() throws IOException, InterruptedException {
 		driver = initializeDriver();
-		homePage = new HomePage(driver);
 		driver.get(URL);
-		return homePage;
+		threadLocalHomePage.set(homePage);
+
 	}
 
 }

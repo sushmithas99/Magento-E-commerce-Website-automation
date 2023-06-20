@@ -1,7 +1,5 @@
 package EcommerceProject.PageObject;
 
-import javax.xml.xpath.XPath;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,8 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import EcommerceProject.AbstractComponents.AbstractComponent;
 
 public class HomePage extends AbstractComponent {
-	WebDriver driver;
-public String homePageText;
+	public WebDriver driver;
+	public MobilesPage mobilePage = new MobilesPage(driver);
+	public static ThreadLocal<MobilesPage> threadLocalDriver = new ThreadLocal<MobilesPage>();
+	public String homePageText;
+
 	public HomePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
@@ -20,10 +21,16 @@ public String homePageText;
 
 	@FindBy(xpath = "//div[@class='page-title']/h2")
 	private WebElement homePageTitle;
-	
-	public MobilesPage getHomePageTitle() {
-		 homePageText = homePageTitle.getText();
-		MobilesPage mobilePage = new MobilesPage(driver);
-		return mobilePage ;
+
+	public String getHomePageTitle() {
+		homePageText = homePageTitle.getText();
+//		return mobilePage;
+//		threadLocalDriver.set(mobilePage);
+		return homePageText;
+
 	}
+
+//	public MobilesPage getMobilePage() {
+//		return threadLocalDriver.get();
+//	}
 }

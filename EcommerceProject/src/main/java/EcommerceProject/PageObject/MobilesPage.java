@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,8 @@ import EcommerceProject.AbstractComponents.AbstractComponent;
 
 public class MobilesPage extends AbstractComponent {
 
-	WebDriver driver;
+	public WebDriver driver;
+	public WebElement productName;
 
 	public MobilesPage(WebDriver driver) {
 		super(driver);
@@ -30,11 +32,9 @@ public class MobilesPage extends AbstractComponent {
 
 	@FindBy(css = "h2 a")
 	private List<WebElement> productNamesWE;
-	
 
-
-	@FindBy(xpath = "/following-sibling::div//span[@class='price']")
-	private WebElement price;
+	By price = By.xpath("parent::h2/following-sibling::div//span[@class='price']");
+	By addToCartBtn = By.xpath("parent::h2/following-sibling::div//button");
 
 	public String getMobilePageTitle() {
 		String mobileMenuPageTitle = mobilePageTitle.getText();
@@ -51,15 +51,17 @@ public class MobilesPage extends AbstractComponent {
 		productNamesWE.forEach(var -> productNames.add(var.getText()));
 		return productNames;
 	}
-	
+
 	public String getPrice(String deviceName) {
-		String priceOfDevice = null;
-		if(getProductsNames().equals(deviceName)) {
-			priceOfDevice = price.getText();
-			
-		}
-		return priceOfDevice;
-		
+
+		 productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(deviceName))
+				.findFirst().orElse(null);
+		String productPrice = productName.findElement(price).getText();
+		return productPrice;
+
+	}
+	public void clickOnAddToCartBtn() {
+		productName.findElement(addToCartBtn).click();
 		
 	}
 
