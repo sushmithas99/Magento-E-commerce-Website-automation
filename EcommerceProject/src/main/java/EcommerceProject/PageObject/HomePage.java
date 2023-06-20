@@ -9,28 +9,29 @@ import EcommerceProject.AbstractComponents.AbstractComponent;
 
 public class HomePage extends AbstractComponent {
 	public WebDriver driver;
-	public MobilesPage mobilePage = new MobilesPage(driver);
-	public static ThreadLocal<MobilesPage> threadLocalDriver = new ThreadLocal<MobilesPage>();
-	public String homePageText;
-
+	
 	public HomePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
+//
 	@FindBy(xpath = "//div[@class='page-title']/h2")
 	private WebElement homePageTitle;
-
+	
 	public String getHomePageTitle() {
-		homePageText = homePageTitle.getText();
-//		return mobilePage;
-//		threadLocalDriver.set(mobilePage);
+		String homePageText = homePageTitle.getText();
 		return homePageText;
-
 	}
 
-//	public MobilesPage getMobilePage() {
-//		return threadLocalDriver.get();
-//	}
+	public MobilesPage getMobilePageObject() {
+//		
+		MobilesPage mobilePage = new MobilesPage(driver);
+		return mobilePage;
+//		threadLocalDriver.set(mobilePage);
+//		return homePageText;
+
+	}
 }
+
+//\

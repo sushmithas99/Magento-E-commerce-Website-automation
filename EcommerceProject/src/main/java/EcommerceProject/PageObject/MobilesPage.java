@@ -33,8 +33,11 @@ public class MobilesPage extends AbstractComponent {
 	@FindBy(css = "h2 a")
 	private List<WebElement> productNamesWE;
 
-	By price = By.xpath("parent::h2/following-sibling::div//span[@class='price']");
-	By addToCartBtn = By.xpath("parent::h2/following-sibling::div//button");
+	@FindBy(className = "price")
+	private WebElement detailsPagePrice;
+
+	By listPagePrice = By.xpath("parent::h2/following-sibling::div//span[@class='price']");
+	By detailsPage = By.xpath("../parent::div/preceding-sibling::a");
 
 	public String getMobilePageTitle() {
 		String mobileMenuPageTitle = mobilePageTitle.getText();
@@ -52,16 +55,18 @@ public class MobilesPage extends AbstractComponent {
 		return productNames;
 	}
 
-	public String getPrice(String deviceName) {
+	public String getListPagePrice(String deviceName) {
 
-		 productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(deviceName))
-				.findFirst().orElse(null);
-		String productPrice = productName.findElement(price).getText();
+		productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(deviceName)).findFirst()
+				.orElse(null);
+		String productPrice = productName.findElement(listPagePrice).getText();
 		return productPrice;
 
 	}
-	public void clickOnAddToCartBtn() {
-		productName.findElement(addToCartBtn).click();
+
+	public String getDetailsPagePrice() {
+		productName.findElement(detailsPage).click();
+		return detailsPagePrice.getText();
 		
 	}
 

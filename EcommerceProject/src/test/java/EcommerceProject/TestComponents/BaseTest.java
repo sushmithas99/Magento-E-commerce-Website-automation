@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import EcommerceProject.PageObject.HomePage;
@@ -16,7 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 	public WebDriver driver;
 	public String URL = "http://live.techpanda.org/";
-//	HomePage homePage = new HomePage(driver);
+	public HomePage homePage;
 //	ThreadLocal<HomePage> threadLocalHomePage = new ThreadLocal<HomePage>();
 
 	public WebDriver initializeDriver() throws IOException {
@@ -43,12 +44,12 @@ public class BaseTest {
 //		return threadLocalHomePage.get();
 //	}
 
-	@BeforeTest
-	public void landingPage() throws IOException, InterruptedException {
+	@BeforeMethod
+	public HomePage landingPage() throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.get(URL);
-		threadLocalHomePage.set(homePage);
-
+		homePage = new HomePage(driver);
+		return homePage;
 	}
 
 }
