@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-20T22:44:30 IST" name="Default suite" finished-at="2023-06-20T22:46:51 IST" duration-ms="140306">
+  <suite started-at="2023-06-21T23:01:55 IST" name="Default suite" finished-at="2023-06-21T23:05:36 IST" duration-ms="221652">
     <groups>
     </groups>
-    <test started-at="2023-06-20T22:44:30 IST" name="Default test" finished-at="2023-06-20T22:46:51 IST" duration-ms="140306">
+    <test started-at="2023-06-21T23:01:55 IST" name="Default test" finished-at="2023-06-21T23:05:36 IST" duration-ms="221652">
       <class name="EcommerceProject.Tests.LiveTechPanda">
-        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@48f278eb]" started-at="2023-06-20T22:44:30 IST" name="landingPage" finished-at="2023-06-20T22:45:37 IST" duration-ms="66882" status="PASS">
+        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@2f217633]" started-at="2023-06-21T23:01:55 IST" name="landingPage" finished-at="2023-06-21T23:03:03 IST" duration-ms="68058" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- landingPage -->
-        <test-method signature="verifyCostOfTheProductIsSameInListPageAndDetailsPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@48f278eb]" started-at="2023-06-20T22:45:37 IST" name="verifyCostOfTheProductIsSameInListPageAndDetailsPage" finished-at="2023-06-20T22:45:42 IST" duration-ms="4168" status="PASS">
+        <test-method signature="verifyCostOfTheProductIsSameInListPageAndDetailsPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@2f217633]" started-at="2023-06-21T23:03:03 IST" name="verifyCostOfTheProductIsSameInListPageAndDetailsPage" finished-at="2023-06-21T23:03:08 IST" duration-ms="4829" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCostOfTheProductIsSameInListPageAndDetailsPage -->
-        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@48f278eb]" started-at="2023-06-20T22:45:42 IST" name="landingPage" finished-at="2023-06-20T22:46:47 IST" duration-ms="65840" status="PASS">
+        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@2f217633]" started-at="2023-06-21T23:03:08 IST" name="landingPage" finished-at="2023-06-21T23:04:14 IST" duration-ms="66926" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- landingPage -->
-        <test-method signature="verifyItemsInMobileListPageIsSortedByName()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@48f278eb]" started-at="2023-06-20T22:46:47 IST" name="verifyItemsInMobileListPageIsSortedByName" finished-at="2023-06-20T22:46:51 IST" duration-ms="3381" status="PASS">
+        <test-method signature="verifyItemsInMobileListPageIsSortedByName()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@2f217633]" started-at="2023-06-21T23:04:14 IST" name="verifyItemsInMobileListPageIsSortedByName" finished-at="2023-06-21T23:04:21 IST" duration-ms="6366" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyItemsInMobileListPageIsSortedByName -->
+        <test-method is-config="true" signature="landingPage()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@2f217633]" started-at="2023-06-21T23:04:21 IST" name="landingPage" finished-at="2023-06-21T23:05:28 IST" duration-ms="66943" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- landingPage -->
+        <test-method signature="verifyUserCannotAddMoreNumProductsThanTheProductAvailableInStore()[pri:0, instance:EcommerceProject.Tests.LiveTechPanda@2f217633]" started-at="2023-06-21T23:05:28 IST" name="verifyUserCannotAddMoreNumProductsThanTheProductAvailableInStore" finished-at="2023-06-21T23:05:36 IST" duration-ms="8483" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserCannotAddMoreNumProductsThanTheProductAvailableInStore -->
       </class> <!-- EcommerceProject.Tests.LiveTechPanda -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

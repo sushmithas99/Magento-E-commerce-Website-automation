@@ -15,14 +15,18 @@ import EcommerceProject.TestComponents.BaseTest;
 
 public class LiveTechPanda extends BaseTest {
 	String productName = "Sony Xperia";
-
+	String qty = "1000";
+	String actualHomePageTitle = "THIS IS DEMO SITE FOR   ";
+	String actualMobilePageTitle = "MOBILE";
+	String actualErrorMsg = "Some of the products cannot be ordered in requested quantity.";
+	String actualEmptyCartMsg = "SHOPPING CART IS EMPTY";
 	@Test
 	public void verifyItemsInMobileListPageIsSortedByName() throws Exception {
 		MobilesPage mobilePage = homePage.getMobilePageObject();
-		Assert.assertEquals("THIS IS DEMO SITE FOR   ", homePage.getHomePageTitle());
+		Assert.assertEquals(actualHomePageTitle, homePage.getHomePageTitle());
 		mobilePage.goToMobilesTab();
 		String mobilePageTitle = mobilePage.getMobilePageTitle();
-		assertEquals("MOBILE", mobilePageTitle);
+		assertEquals(actualMobilePageTitle, mobilePageTitle);
 		List<String> productNames = mobilePage.getProductsNames();
 		Collections.sort(productNames);
 		Select select = mobilePage.getDropdownSelector();
@@ -40,5 +44,15 @@ public class LiveTechPanda extends BaseTest {
 		assertEquals(priceInListPage, detailsPagePrice);
 		
 	}
-	
+	@Test
+	public void verifyUserCannotAddMoreNumProductsThanTheProductAvailableInStore() throws InterruptedException {
+		MobilesPage mobilePage = homePage.getMobilePageObject();
+		mobilePage.goToMobilesTab();
+		String expectedErrorMSG = mobilePage.getErrorMsgOnAddingMoreQTY(qty,productName);
+		assertEquals(actualErrorMsg, expectedErrorMSG);
+		String expectedEmptyCartMessage = mobilePage.getEmptyMessage();
+		assertEquals( actualEmptyCartMsg,expectedEmptyCartMessage );
+		
+		
+	}
 }
