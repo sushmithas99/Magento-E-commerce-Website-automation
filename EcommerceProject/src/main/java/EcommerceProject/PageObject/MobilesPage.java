@@ -17,7 +17,6 @@ public class MobilesPage extends AbstractComponent {
 	MobilesPage mp;
 
 	public WebDriver driver;
-	public WebElement productName;
 
 	public MobilesPage(WebDriver driver) {
 		super(driver);
@@ -45,7 +44,7 @@ public class MobilesPage extends AbstractComponent {
 
 	@FindBy(css = "div.page-title h1")
 	private WebElement emptyMsg;
-	
+
 //	@FindBy(xpath = "//input[@title='Qty']")
 //	private WebElement QTYTextBox;
 
@@ -71,31 +70,31 @@ public class MobilesPage extends AbstractComponent {
 		return productNames;
 	}
 
-	public String getListPagePrice(String deviceName) {
+	public WebElement getprodNameWE(String devicename) {
+		WebElement productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(devicename))
+				.findFirst().orElse(null);
+		return productName;
 
-		productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(deviceName)).findFirst()
-				.orElse(null);
-		String productPrice = productName.findElement(listPagePrice).getText();
+	}
+
+	public String getListPagePrice(String productName) {
+
+		String productPrice = getprodNameWE(productName).findElement(listPagePrice).getText();
 		return productPrice;
 
 	}
 
-	public String getDetailsPagePrice() {
-		productName.findElement(detailsPage).click();
+	public String getDetailsPagePrice(String productName) {
+		getprodNameWE(productName).findElement(detailsPage).click();
 		return detailsPagePrice.getText();
 
 	}
 
-	public String getErrorMsgOnAddingMoreQTY(String numOfQTY,String deviceName) throws InterruptedException {
-		productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(deviceName)).findFirst()
-				.orElse(null);
-		productName.findElement(addToCartBtn).click();
+	public String getErrorMsgOnAddingMoreQTY(String numOfQTY, String deviceName) throws InterruptedException {
+
+		getprodNameWE(deviceName).findElement(addToCartBtn).click();
 //		driver.navigate().refresh();
-		
-		productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(deviceName)).findFirst()
-				.orElse(null);
-		WebElement QTYTextBox = productName.findElement(QTYField);
-		
+		WebElement QTYTextBox = getprodNameWE(deviceName).findElement(QTYField);
 		QTYTextBox.clear();
 		QTYTextBox.sendKeys(numOfQTY);
 		QTYTextBox.findElement(updateBtn).click();

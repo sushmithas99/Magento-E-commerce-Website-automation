@@ -1193,3 +1193,20 @@
 2023-06-21 23:00:18,151 [Worker-236: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\main\resources
 2023-06-21 23:00:18,175 [Worker-236: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-06-21 23:00:18,176 [Worker-236: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\test\resources
+2023-06-22 12:51:15,734 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-06-22 12:51:26,256 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2023-06-22 14:50:10,865 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:50:10,868 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\main\resources
+2023-06-22 14:50:10,871 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:50:10,871 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\test\resources
+2023-06-22 14:50:23,507 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:50:23,507 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\main\resources
+2023-06-22 14:50:23,509 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:50:23,510 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\test\resources
+2023-06-22 14:51:53,688 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:51:53,689 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\main\resources
+2023-06-22 14:51:53,690 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:51:53,690 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\test\resources
+2023-06-22 14:56:01,395 [Worker-25: Launching LiveTechPanda] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-06-22 14:56:01,395 [Worker-25: Launching LiveTechPanda] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Work Docs\E-Commerce Project Guru99\EcommerceProject\src\main\resources
+2023-06-22 14:56:01,396 [Worker-25: Launching LiveTechPanda] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.

@@ -39,8 +39,9 @@ public class LiveTechPanda extends BaseTest {
 	public void verifyCostOfTheProductIsSameInListPageAndDetailsPage() {
 		MobilesPage mobilePage = homePage.getMobilePageObject();
 		mobilePage.goToMobilesTab();
+		
 		String priceInListPage = mobilePage.getListPagePrice(productName);
-		String detailsPagePrice = mobilePage.getDetailsPagePrice();
+		String detailsPagePrice = mobilePage.getDetailsPagePrice(productName);
 		assertEquals(priceInListPage, detailsPagePrice);
 		
 	}
