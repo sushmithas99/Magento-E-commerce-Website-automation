@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import EcommerceProject.AbstractComponents.AbstractComponent;
+import EcommerceProject.AbstractComponents.DetailsPage;
 
 public class MobilesPage extends AbstractComponent {
 	MobilesPage mp;
@@ -32,36 +33,29 @@ public class MobilesPage extends AbstractComponent {
 
 	@FindBy(xpath = "//h2/a")
 	private List<WebElement> productNamesWE;
+	
+	@FindBy(css = "button[title='Compare']")
+	private WebElement compareBtn;
+	
+	@FindBy(css = "button[title = 'Close Window']")
+	public WebElement closeChildWindow;
 
-	@FindBy(className = "price")
-	private WebElement detailsPagePrice;
+	String cmnProdDetailsXpath = "parent::h2/following-sibling::div";
 
-	@FindBy(css = "li.error-msg span")
-	private WebElement errorMsg;
+	By listPagePrice = By.xpath(cmnProdDetailsXpath + "//span[@class='price']");
 
-	@FindBy(id = "empty_cart_button")
-	private WebElement emptyCart;
-
-	@FindBy(css = "div.page-title h1")
-	private WebElement emptyMsg;
-
-//	@FindBy(xpath = "//input[@title='Qty']")
-//	private WebElement QTYTextBox;
-
-	By listPagePrice = By.xpath("parent::h2/following-sibling::div//span[@class='price']");
-	By detailsPage = By.xpath("../parent::div/preceding-sibling::a");
-	By addToCartBtn = By.xpath("parent::h2/following-sibling::div/button");
-	By QTYField = By.xpath("../parent::td/following-sibling::td/input[@title='Qty']");
-	By updateBtn = By.xpath("following-sibling::button");
+	By addToCartBtn = By.xpath(cmnProdDetailsXpath + "/button");
+	By addToCompare = By.xpath(cmnProdDetailsXpath + "//a[@class='link-compare']");
 
 	public String getMobilePageTitle() {
 		String mobileMenuPageTitle = mobilePageTitle.getText();
 		return mobileMenuPageTitle;
 	}
 
-	public Select getDropdownSelector() {
+	public void selectByVisText(String dropdownText) {
 		Select select = new Select(sortByDropdown);
-		return select;
+		select.selectByVisibleText(dropdownText);
+
 	}
 
 	public List<String> getProductsNames() {
@@ -70,43 +64,22 @@ public class MobilesPage extends AbstractComponent {
 		return productNames;
 	}
 
-	public WebElement getprodNameWE(String devicename) {
-		WebElement productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(devicename))
-				.findFirst().orElse(null);
-		return productName;
-
-	}
-
 	public String getListPagePrice(String productName) {
-
-		String productPrice = getprodNameWE(productName).findElement(listPagePrice).getText();
+		String productPrice = getProdNameWE(productName).findElement(listPagePrice).getText();
 		return productPrice;
 
 	}
 
-	public String getDetailsPagePrice(String productName) {
-		getprodNameWE(productName).findElement(detailsPage).click();
-		return detailsPagePrice.getText();
-
+	public ShoppingCartPage getShoppingCartPageObject(String deviceName) {
+		getProdNameWE(deviceName).findElement(addToCartBtn).click();
+		ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+		return shoppingCartPage;
 	}
 
-	public String getErrorMsgOnAddingMoreQTY(String numOfQTY, String deviceName) throws InterruptedException {
-
-		getprodNameWE(deviceName).findElement(addToCartBtn).click();
-//		driver.navigate().refresh();
-		WebElement QTYTextBox = getprodNameWE(deviceName).findElement(QTYField);
-		QTYTextBox.clear();
-		QTYTextBox.sendKeys(numOfQTY);
-		QTYTextBox.findElement(updateBtn).click();
-		String errorMSG = errorMsg.getText();
-		return errorMSG;
-
-	}
-
-	public String getEmptyMessage() {
-		emptyCart.click();
-		return emptyMsg.getText();
-
+	public void clickOnCompareBtn(String firstProd, String secondProd) {
+		getProdNameWE(firstProd).findElement(addToCompare).click();
+		getProdNameWE(secondProd).findElement(addToCompare).click();
+		compareBtn.click();
 	}
 
 }

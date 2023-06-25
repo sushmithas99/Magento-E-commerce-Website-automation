@@ -1,6 +1,7 @@
 package EcommerceProject.AbstractComponents;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,9 @@ public class AbstractComponent {
 	@FindBy(xpath = "//a[text()='Mobile']")
 	private WebElement mobile;
 
+	@FindBy(xpath = "//h2/a")
+	private List<WebElement> productNamesWE;
+
 	public void goToMobilesTab() {
 		mobile.click();
 	}
@@ -33,4 +37,10 @@ public class AbstractComponent {
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
 	}
 
+	public WebElement getProdNameWE(String devicename) {
+		WebElement productName = productNamesWE.stream().filter(s -> s.getText().equalsIgnoreCase(devicename))
+				.findFirst().orElse(null);
+		return productName;
+
+	}
 }
