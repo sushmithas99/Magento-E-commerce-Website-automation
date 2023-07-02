@@ -1,5 +1,6 @@
 package EcommerceProject.TestComponents;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -7,10 +8,16 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import EcommerceProject.PageObject.HomePage;
 import EcommerceProject.PageObject.MobilesPage;
@@ -54,6 +61,14 @@ public class BaseTest {
 		 childWindow = windowsIt.next();
 	}
 
+	public String getScreenShot(String testcaseName,WebDriver driver) throws Exception {
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File sourceType = ts.getScreenshotAs(OutputType.FILE);
+		String fileLocation = System.getProperty("user.dir")+"\\Screenshots\\"+testcaseName+".png";
+		FileUtils.copyFile(sourceType, new File(fileLocation));
+		return fileLocation;
+	}
+
 	@BeforeMethod
 	public HomePage landingPage() throws IOException, InterruptedException {
 		driver = initializeDriver();
@@ -61,5 +76,6 @@ public class BaseTest {
 		homePage = new HomePage(driver);
 		return homePage;
 	}
+	
 
 }
