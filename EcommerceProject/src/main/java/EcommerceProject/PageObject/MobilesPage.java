@@ -12,7 +12,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import EcommerceProject.AbstractComponents.AbstractComponent;
-import EcommerceProject.AbstractComponents.DetailsPage;
 
 public class MobilesPage extends AbstractComponent {
 	MobilesPage mp;

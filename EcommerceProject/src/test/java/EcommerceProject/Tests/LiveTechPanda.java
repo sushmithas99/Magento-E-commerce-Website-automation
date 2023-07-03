@@ -5,12 +5,9 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.Collections;
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import EcommerceProject.AbstractComponents.DetailsPage;
+import EcommerceProject.PageObject.DetailsPage;
 import EcommerceProject.PageObject.MobilesPage;
 import EcommerceProject.PageObject.ShoppingCartPage;
 import EcommerceProject.TestComponents.BaseTest;
@@ -73,5 +70,10 @@ public class LiveTechPanda extends BaseTest {
 		assertTrue(productsNames.get(1).equalsIgnoreCase(secondProdName));
 		mobilePage.closeChildWindow.click();
 		driver.switchTo().window(parentWindow);
+	}
+	
+	@Test
+	public void verifyUserCanCreateAccountAndShareWishList() {
+		MobilesPage mobilePage = homePage.getMobilePageObject();
 	}
 }

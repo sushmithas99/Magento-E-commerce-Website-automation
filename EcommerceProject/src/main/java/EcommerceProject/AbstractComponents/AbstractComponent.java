@@ -28,8 +28,18 @@ public class AbstractComponent {
 	@FindBy(xpath = "//h2/a")
 	private List<WebElement> productNamesWE;
 
+	@FindBy(css = "//a/span[text()='Account']")
+	private WebElement accountTab;
+
+	@FindBy(css = "div[id='header-account'] a[title='My Account']")
+	private WebElement myAccountTab;
+
 	public void goToMobilesTab() {
 		mobile.click();
+	}
+	public void goToMyAccountTab() {
+		accountTab.click();
+		myAccountTab.click();
 	}
 
 	public void waitForElementToApear(By locator) {
