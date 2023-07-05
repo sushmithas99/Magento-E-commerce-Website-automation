@@ -5,8 +5,8 @@
     <classes>
       <class name="EcommerceProject.Tests.LiveTechPanda">
         <methods>
-          <include name="verifyUserIsAbleToCompareTwoProducts"/>
           <include name="landingPage"/>
+          <include name="verifyUserCanCreateAccountAndShareWishList"/>
         </methods>
       </class> <!-- EcommerceProject.Tests.LiveTechPanda -->
     </classes>

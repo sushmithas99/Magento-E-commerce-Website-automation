@@ -80,5 +80,11 @@ public class MobilesPage extends AbstractComponent {
 		getProdNameWE(secondProd).findElement(addToCompare).click();
 		compareBtn.click();
 	}
+	
+	public MyAccountPage getMyAccountPageObject() {
+		goToMyAccountTab();
+		MyAccountPage myAccountPage = new MyAccountPage(driver);
+		return myAccountPage;
+	}
 
 }

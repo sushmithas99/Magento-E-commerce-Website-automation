@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import EcommerceProject.PageObject.DetailsPage;
 import EcommerceProject.PageObject.MobilesPage;
+import EcommerceProject.PageObject.MyAccountPage;
 import EcommerceProject.PageObject.ShoppingCartPage;
 import EcommerceProject.TestComponents.BaseTest;
 
@@ -20,6 +21,12 @@ public class LiveTechPanda extends BaseTest {
 	String actualMobilePageTitle = "MOBILE";
 	String actualErrorMsg = "Some of the products cannot be ordered in requested quantity.";
 	String actualEmptyCartMsg = "SHOPPING CART IS EMPTY";
+	String fnameV = "WILKJHGFDSAFGHJ";
+	String lnameV = "s";
+	String email = "HGFH3@tpg.com.au";
+	String pswdV = "G@6bxiS7Ype5Dkg";
+	String expectedSuccfulMsg = "Thank you for registering with Main Website Store.";
+	
 
 	@Test
 	public void verifyItemsInMobileListPageIsSortedByName() throws Exception {
@@ -73,7 +80,15 @@ public class LiveTechPanda extends BaseTest {
 	}
 	
 	@Test
-	public void verifyUserCanCreateAccountAndShareWishList() {
+	public void verifyUserCanCreateAccountAndShareWishList() throws InterruptedException {
 		MobilesPage mobilePage = homePage.getMobilePageObject();
+//		Thread.sleep(1000);
+		MyAccountPage myAccountPage= mobilePage.getMyAccountPageObject();
+		myAccountPage.createAccount(fnameV, lnameV, email, pswdV, pswdV);
+//		Thread.sleep(100000);
+		String actualSuccfulRegMsg = myAccountPage.getSuccfulRegMsg();
+		assertEquals(actualSuccfulRegMsg, expectedSuccfulMsg);
+		
+		
 	}
 }
