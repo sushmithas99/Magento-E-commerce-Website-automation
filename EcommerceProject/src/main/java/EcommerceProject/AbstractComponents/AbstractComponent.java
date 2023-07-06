@@ -26,7 +26,7 @@ public class AbstractComponent {
 	private WebElement mobile;
 	
 	@FindBy(linkText = "TV")
-	private WebElement TV;
+	private WebElement tvTab;
 
 	@FindBy(xpath = "//h2/a")
 	private List<WebElement> productNamesWE;
@@ -39,6 +39,9 @@ public class AbstractComponent {
 
 	public void goToMobilesTab() {
 		mobile.click();
+	}
+	public void goToTvTab() {
+		tvTab.click();
 	}
 
 	public void goToMyAccountTab() {
