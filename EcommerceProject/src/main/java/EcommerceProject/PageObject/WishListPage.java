@@ -26,7 +26,8 @@ public class WishListPage extends AbstractComponent {
 	@FindBy(xpath =  "//li[@class='success-msg']//span")
 	private WebElement successMsg;
 	
-	
+	@FindBy(xpath =  "//button[@title='Add to Cart']")
+	private WebElement addToCartBtn;
 	
 	By wishList = By.xpath("parent::h2/following::div//a[@class='link-wishlist']");
 
@@ -35,6 +36,12 @@ public class WishListPage extends AbstractComponent {
 		shareWishListBtn.click();
 		return successMsg.getText();
 		
+	}
+	public ShoppingCartPage clickOnAddToCart() {
+		
+		addToCartBtn.click();
+		ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+		return shoppingCartPage;
 	}
 
 }

@@ -40,6 +40,14 @@ public class MyAccountPage extends AbstractComponent {
 	@FindBy(xpath = "//li//span")
 	private WebElement successRegMsg;
 	
+	@FindBy(name = "login[username]")
+	private WebElement loginEmail;
+	
+	@FindBy(name = "login[password]")
+	private WebElement loginPwd;
+	
+	@FindBy(name = "send")
+	private WebElement loginBtn;
 
 	public void createAccount(String fnameV, String lnameV, String emailV, String pswdV, String confirmPswdV) {
 		createAnAccountBtn.click();
@@ -53,6 +61,13 @@ public class MyAccountPage extends AbstractComponent {
 	}
 	public String getSuccfulRegMsg() {
 		return successRegMsg.getText();
+	}
+	public DashboardPage login(String email, String password) {
+		loginEmail.sendKeys(email);
+		loginPwd.sendKeys(password);
+		loginBtn.click();
+		DashboardPage dashboardPage = new DashboardPage(driver);
+		return dashboardPage;
 		
 	}
 }

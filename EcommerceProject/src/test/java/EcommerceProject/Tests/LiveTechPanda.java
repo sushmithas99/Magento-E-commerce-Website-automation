@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import EcommerceProject.PageObject.CheckoutPage;
+import EcommerceProject.PageObject.DashboardPage;
 import EcommerceProject.PageObject.DetailsPage;
 import EcommerceProject.PageObject.MobilesPage;
 import EcommerceProject.PageObject.MyAccountPage;
@@ -23,13 +26,23 @@ public class LiveTechPanda extends BaseTest {
 	String actualMobilePageTitle = "MOBILE";
 	String actualErrorMsg = "Some of the products cannot be ordered in requested quantity.";
 	String actualEmptyCartMsg = "SHOPPING CART IS EMPTY";
-	String fnameV = "WFHGKJHGFHJDSAFGHJ";
+	String fnameV = "ecbvnxgFHJDAFGHJ";
 	String lnameV = "s";
-	String email = "HGjggHGFH3@tpg.com.au";
+	String email = "efxfcbhhb3@tpg.com.au";
 	String shareWishlistEmail = "HGFJH@Dffd.com.au";
 	String pswdV = "G@6bxiJGHYpe5Dkg";
 	String expectedSuccfulMsg = "Thank you for registering with Main Website Store.";
 	String tvName = "LG LCD";
+	
+	String address = "ABC";
+	String city = "NewYork";
+	String zipcode = "542836";
+	String country = "United States";
+	String state = "New York";
+	String phNum = "1234567891";
+
+	
+	WishListPage wishlistPage;
 	
 
 	@Test
@@ -94,14 +107,23 @@ public class LiveTechPanda extends BaseTest {
 		assertEquals(actualSuccfulRegMsg, expectedSuccfulMsg);
 		TvPage tvPage = new TvPage(driver);
 		tvPage.goToTvTab();
-		WishListPage wishlistPage = tvPage.getWishlistPageObject(tvName);
+		wishlistPage = tvPage.getWishlistPageObject(tvName);
 		String actualSuccessMsg = wishlistPage.getsuccessWLShareMsg(shareWishlistEmail);
 		System.out.println(actualSuccessMsg);
-		
-		
-		
-		
-		
+	}
+	@Test(dependsOnMethods = {"verifyUserCanCreateAccountAndShareWishList"})
+	public void verifyUserAbleToPurchaseUsingRegEmail() throws InterruptedException {
+		MobilesPage mobilePage = homePage.getMobilePageObject();
+		MyAccountPage myAccountPage= mobilePage.getMyAccountPageObject();
+		DashboardPage dashboardPage = myAccountPage.login(email, pswdV);
+		dashboardPage.clickOnWishlistLink();
+		ShoppingCartPage shoppingCartPage = wishlistPage.clickOnAddToCart();
+		CheckoutPage checkoutPage = shoppingCartPage.proceedToCheckout(country,state,zipcode);
+		String actualGrandTotalCost = shoppingCartPage.actualGrandTotalCost;
+		String expectedGrandTotalCost = shoppingCartPage.expectedGrandTotalCost;	
+		assertEquals(actualGrandTotalCost, expectedGrandTotalCost);
+		String actualOrderConfirmMsg = checkoutPage.placeOrder(address,city,zipcode,state,country,phNum);
+		System.out.println(actualOrderConfirmMsg);
 		
 		
 	}
