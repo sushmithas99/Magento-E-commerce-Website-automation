@@ -5,12 +5,9 @@
     <classes>
       <class name="EcommerceProject.Tests.LiveTechPanda">
         <methods>
-          <include name="verifyUserIsAbleToCompareTwoProducts"/>
-          <include name="verifyCostOfTheProductIsSameInListPageAndDetailsPage"/>
-          <include name="verifyItemsInMobileListPageIsSortedByName"/>
-          <include name="verifyUserCannotAddMoreNumProductsThanTheProductAvailableInStore"/>
           <include name="verifyUserAbleToPurchaseUsingRegEmail"/>
           <include name="landingPage"/>
+          <include name="verifyUserAbleToSaveOrderHistoryAsPDF"/>
           <include name="verifyUserCanCreateAccountAndShareWishList"/>
         </methods>
       </class> <!-- EcommerceProject.Tests.LiveTechPanda -->

@@ -81,7 +81,7 @@ public class MobilesPage extends AbstractComponent {
 		compareBtn.click();
 	}
 	
-	public MyAccountPage getMyAccountPageObject() {
+	public MyAccountPage goToMyAccount() {
 		goToMyAccountTab();
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
 		return myAccountPage;

@@ -19,9 +19,19 @@ public class DashboardPage extends AbstractComponent {
 
 	@FindBy(xpath =  "//li/a[text()='My Wishlist']")
 	private WebElement myWishlistLink;
+	
+	@FindBy(xpath =  "//li/a[text()='My Orders']")
+	private WebElement myOrdersLink;
 
 	public void clickOnWishlistLink() {
 		myWishlistLink.click();
 	}
+	public MyOrdersPage clickOnMyOrdersLink() {
+		myOrdersLink.click();
+		MyOrdersPage myOrdersPage = new MyOrdersPage(driver);
+		return myOrdersPage;
+	}
+	
+	
 
 }
